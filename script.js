@@ -1,5 +1,15 @@
 const choices = ["rock", "paper", "scissors"];
 
+const playerScoreElem = document.getElementById("player-score");
+const computerScoreElem = document.getElementById("computer-score");
+const playerResultElem = document.getElementById("player-result");
+const computerResultElem = document.getElementById("computer-result");
+
+const resultTextElem = document.querySelector(".current-results h1");
+
+let playerScore = 0;
+let computerScore = 0;
+
 function capitalize(str) {
   return str[0].toUpperCase() + str.slice(1).toLowerCase();
 }
@@ -19,9 +29,9 @@ function playRound(userSelection, computerSelection) {
     userIndex - computerIndex === 1 ||
     userIndex - computerIndex === -choices.length + 1
   ) {
-    return `You win! ${capitalize(userSelection)} beats ${computerSelection}`;
+    return `You win!`;
   } else {
-    return `You lose! ${capitalize(computerSelection)} beats ${userSelection}`;
+    return `Computer wins!`;
   }
 }
 
@@ -34,4 +44,21 @@ function game() {
   }
 }
 
-game();
+function handleClick(e) {
+  const userSelection =
+    e.target.dataset.choice === undefined
+      ? e.target.parentNode.dataset.choice
+      : e.target.dataset.choice;
+  const computerSelection = computerPlay();
+  const result = playRound(userSelection, computerSelection);
+  if (result == "You win!") playerScore++;
+  else if (result == "Computer wins!") computerScore++;
+  resultTextElem.textContent = result;
+  playerScoreElem.textContent = playerScore;
+  computerScoreElem.textContent = computerScore;
+}
+
+const choiceElements = document.querySelectorAll(".choice");
+choiceElements.forEach((element) => {
+  element.addEventListener("click", handleClick);
+});
