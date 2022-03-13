@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
+
+:root {
+  --background-color: #f8eee7;
+  --item-background: #f4decb;
+  --score-text-color: #000;
+  --player-text-color: #454545;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+body {
+  min-width: calc(100vw - 20px);
+  min-height: calc(100vh - 20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+}
+
+.game-score,
+.current-results,
+.choice {
+  height: 13rem;
+  padding: 1.5rem 4rem;
+  margin: 1rem;
+  background-color: var(--item-background);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.game-score,
+.current-results {
+  min-width: 400px;
+  width: 60vw;
+  max-width: 500px;
+}
+
+.game-score h1,
+.current-results h1 {
+  color: var(--player-text-color);
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
+.score-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.score {
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.score h2,
+.choice h2 {
+  font-size: 4rem;
+  font-weight: 500;
+}
+
+.score p,
+.choice p {
+  color: var(--player-text-color);
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+}
+
+.player-choices {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 4rem;
+}
+
+.choice {
+  max-width: 20rem;
+  padding: 1rem;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  * {
+    font-size: 14px;
+  }
+  body {
+    min-width: 100vw;
+    min-height: 100vh;
+    /* padding: 0 4rem; */
+  }
+  .game-score,
+  .current-results {
+    min-width: 200px;
+    width: auto;
+    padding: 1.5rem 2rem;
+  }
+}
