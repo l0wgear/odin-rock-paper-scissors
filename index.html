@@ -6,6 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RPS</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="game-score">
+      <h1>Game Score</h1>
+      <div class="score-container">
+        <div class="score">
+          <h2 id="player-score">0</h2>
+          <p>Player</p>
+        </div>
+        <div class="score">
+          <h2 id="computer-score">0</h2>
+          <p>Computer</p>
+        </div>
+      </div>
+    </div>
+    <div class="current-results">
+      <h1>Computer wins!</h1>
+      <div class="score-container">
+        <div class="score">
+          <h2 id="player-result">✌</h2>
+          <p>Player</p>
+        </div>
+        <div class="score">
+          <h2 id="computer-result">✊</h2>
+          <p>Computer</p>
+        </div>
+      </div>
+    </div>
+    <div class="player-choices">
+      <div class="choice" data-choice="rock">
+        <h2>✊</h2>
+        <p>Rock</p>
+      </div>
+      <div class="choice" data-choice="paper">
+        <h2>✋</h2>
+        <p>Paper</p>
+      </div>
+      <div class="choice" data-choice="scissors">
+        <h2>✌</h2>
+        <p>Scissors</p>
+      </div>
+    </div>
+  </body>
 </html>
