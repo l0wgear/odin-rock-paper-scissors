@@ -6,12 +6,22 @@ const playerResultElem = document.getElementById("player-result");
 const computerResultElem = document.getElementById("computer-result");
 
 const resultTextElem = document.querySelector(".current-results h1");
+const scoreContainer = document.querySelector(
+  ".current-results .score-container"
+);
 
 let playerScore = 0;
 let computerScore = 0;
 
 function capitalize(str) {
   return str[0].toUpperCase() + str.slice(1).toLowerCase();
+}
+
+function getEmoji(choice) {
+  if (choice == "rock") return "✊";
+  else if (choice == "paper") return "✋";
+  else if (choice == "scissors") return "✌";
+  else return "🤔";
 }
 
 function computerPlay() {
@@ -23,8 +33,7 @@ function playRound(userSelection, computerSelection) {
   const userIndex = choices.indexOf(userSelection);
   if (userIndex === -1) return "Invalid user choice!";
   const computerIndex = choices.indexOf(computerSelection);
-  if (userSelection.toLowerCase() === computerSelection)
-    return `Draw! Both you and computer chose ${userSelection}`;
+  if (userSelection.toLowerCase() === computerSelection) return `Draw!`;
   else if (
     userIndex - computerIndex === 1 ||
     userIndex - computerIndex === -choices.length + 1
@@ -32,15 +41,6 @@ function playRound(userSelection, computerSelection) {
     return `You win!`;
   } else {
     return `Computer wins!`;
-  }
-}
-
-function game() {
-  for (let i = 0; i < 5; i++) {
-    let userSelection = window.prompt("Enter rock, paper or scissors");
-    let computerSelection = computerPlay();
-    let result = playRound(userSelection, computerSelection);
-    console.log(result);
   }
 }
 
@@ -56,6 +56,9 @@ function handleClick(e) {
   resultTextElem.textContent = result;
   playerScoreElem.textContent = playerScore;
   computerScoreElem.textContent = computerScore;
+  playerResultElem.textContent = getEmoji(userSelection);
+  computerResultElem.textContent = getEmoji(computerSelection);
+  scoreContainer.style.display = "flex";
 }
 
 const choiceElements = document.querySelectorAll(".choice");
