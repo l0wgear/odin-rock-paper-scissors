@@ -136,4 +136,7 @@ body {
     width: auto;
     padding: 1.5rem 2rem;
   }
+  .choice {
+    min-height: 9rem;
+  }
 }
