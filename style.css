@@ -3,6 +3,7 @@
 :root {
   --background-color: #f8eee7;
   --item-background: #f4decb;
+  --item-clicked: #f5ccaa;
   --score-text-color: #000;
   --player-text-color: #454545;
 }
@@ -29,7 +30,7 @@ body {
 .game-score,
 .current-results,
 .choice {
-  min-height: 13rem;
+  min-height: 15rem;
   padding: 1.5rem 4rem;
   margin: 1rem;
   background-color: var(--item-background);
@@ -108,6 +109,16 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.choice:hover {
+  transform: scale(1.03);
+}
+
+.choice:active {
+  transform: scale(0.99);
+  background-color: var(--item-clicked);
 }
 
 @media (max-width: 600px) {
